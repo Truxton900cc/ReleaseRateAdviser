@@ -1,0 +1,27 @@
+{
+    "name": "Release Rate Adviser2",
+    "description": "Es una extencion que agreaga botones :v",
+    "version": "0.02",
+    "manifest_version":3,
+    "action":{
+        "default_popup":"index.html"
+    },
+    "content_scripts":[
+
+        {
+            "matches":[
+                "https://*.youtube.com/*",
+                "https://*.wwe.uhc.com/*"
+            ],
+            "js":["contentScript.js"]
+        }
+
+    ],
+    "icons": {
+
+        "32":  "icons/icon_32.png",
+        "72":  "icons/icon_72.png",
+        "128": "icons/icon_128.png"
+    }
+    
+}

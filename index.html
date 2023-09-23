@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        
+        <title>Release Rate Adviser</title>
+    </head>
+    <body>
+        
+        <h1>Release Rate Adviser</h1>
+
+        <div class="MedidorYDatos">
+            <div class="gauge" >
+                <div class="gauge__body">
+                <div class="gauge__fill" id="gaugeFillId"></div>
+                <div class="gauge__cover"></div>
+                </div>
+            </div>
+                  
+
+            <div class = "etiquetas">
+                    <label >Dias Trabajados</label>
+                    <input id="WD" type="number"  name="firstname" >
+                    <p></p>    
+                    <label >Total Dias Habiles</label>
+                    <input id="BD" type="number"  name="lastname" >
+                    <p></p>
+                    <label >Llamadas Colgadas</label>
+                    <input id="RC" type="number"  name="releasedcalls" >
+                    <p></p>
+                    <label >Total de llamadas</label>
+                    <input id="TC" type="number"  name="Totalreleasedcalls" >
+                    <p></p>
+                    <input id="submit" type="submit" value="Submit">
+            </div>
+        </div>  
+        <div id="resumen" class="resumen">
+            
+            <h1 class="res">Resumen:</h1>
+            <label class="resumen">Promedio de Llamadas:<span class="prom"></span></label>
+            <label class="resumen">Le hace falta colgar:<span class="falta"></span></label>
+            <label class="resumen">Restantes del Mes:<span class="alDia"></span></label>
+            <label class="resumen">Porcentaje Diario:<span class="porcentajeDia"></span></label>
+            
+        </div>
+
+        <div class="resumen" >
+            <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+        </div>
+        
+
+        <div class="espacio">
+           <span class="firma">Develop by Sebastian Delgado</span> 
+        </div>
+
+        <script src="main.js"></script>
+        <script src="ControlAnimaciones.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>-->
+        
+    </body>
+</html>
