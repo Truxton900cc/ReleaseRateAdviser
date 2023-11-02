@@ -70,6 +70,7 @@ const promValue = document.querySelector(".prom");
 const faltaValue = document.querySelector(".falta");
 const alDiaValue = document.querySelector(".alDia");
 const porcenDia = document.querySelector(".porcentajeDia");
+const Sobrantes = document.querySelector(".dejarDeColgar");
 
 //var i = 0;
 //?function myFunction() {
@@ -122,6 +123,64 @@ function getData(){
 
     let colorFill      = document.getElementById(`gaugeFillId`);
 
+    //const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+    const fecha = new Date();
+
+    const numeroMes = fecha.getMonth();
+
+    
+
+    let CantidadDias = 0;
+
+    let ParOImpar = 0;
+
+    //let mesActual = meses[d.getMonth()];
+
+    if(numeroMes<7){// Enero[0] 31 , Febrero[1] 28, Marzo[2] 31, Abril[3] 30, Mayo[4] 31, Junio[5] 30, Julio[6] 31,
+
+      if(numeroMes == 1){ // Febrero[1]
+
+      }
+      else{ // Enero[0], Marzo[2], Abril[3], Mayo[4], Junio[5], Julio[6]
+
+        ParOImpar = numeroMes % 2;
+
+        if(ParOImpar == 0){
+  
+          console.log("Tiene 31 dias");
+          CantidadDias = 31;
+  
+        }
+        else{
+          console.log("Tiene 30 dias");
+          CantidadDias = 30;
+        }
+
+      }
+
+    }
+    else{
+
+      console.log("Este es el mes numero:" + numeroMes);
+      ParOImpar = numeroMes % 2;
+      console.log("Numero: " + ParOImpar);
+      if(ParOImpar != 0){
+
+        console.log("Tiene 30 dias");
+        CantidadDias = 31;
+
+      }
+      else{
+        console.log("Tiene 31 dias");
+        CantidadDias = 30;
+      }
+
+    }
+
+
+
+
     var promedio         = 0;
     var cantidadPosible  = 0;
     var alDiaCol         = 0;
@@ -132,6 +191,7 @@ function getData(){
     var restantesDelMes  = 0;
     var necesitoColgar   = 0;
     var porcentajeDia    = 0;
+    var llamadasDeSobra  = 0;
 
     RR              = releasedCalls/totalCalls;
     porcentajeDeuda = (0.7 - RR).toFixed(2);
@@ -147,6 +207,7 @@ function getData(){
     mi70Pociento    = minimoPorColgar + deuda + 93;
     faltaCol        = minimoPorColgar + deuda;
 
+    llamadasDeSobra =Math.round( releasedCalls - (totalCalls * 0.7));
 
     setGaugeValue(gaugeElement,RR); 
 
@@ -158,6 +219,8 @@ function getData(){
 
     porcenDia.textContent = `${porcentajeDia.toFixed(0)+"%"}`;
 
+    Sobrantes.textContent = `${llamadasDeSobra.toFixed(0)}`;
+
     console.log("Release Rate: "     +RR);
     console.log("Porcentaje Deuda: " +porcentajeDeuda);
     console.log("Deuda llamadas: "   +deuda);
@@ -167,6 +230,9 @@ function getData(){
     console.log("Minimo por colgar: "+minimoPorColgar);
     console.log("Necesita Colgar: "  +necesitoColgar);
     
+
+    //console.log("Este mes es: "+mesActual);
+
 
     var storedValue = localStorage.getItem('DiasHabiles');
 

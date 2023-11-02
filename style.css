@@ -189,6 +189,9 @@ h1{
     .alDia{
       margin: 40px;
     }
+    .dejarDeColgar{
+      margin: 20px;
+    }
     .firma{
       display: flex;
       align-items: center;
