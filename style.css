@@ -47,7 +47,7 @@ h1{
         background: #00953e;
         transform-origin: center top;
         transform: rotate(0.25turn);
-        transition: transform 0.2s ease-out;
+        transition: transform 0.2s ease-in-out;
       }
       
       @keyframes cambiarColorBien{
