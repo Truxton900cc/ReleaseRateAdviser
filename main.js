@@ -111,6 +111,8 @@ function guardar(){
     localStorage.setItem('ReleasedCalls',ObjreleasedCalls.value);
     localStorage.setItem('TotalCalls',ObjtotalCalls.value);
 
+    getData();
+
 }
 
 
@@ -223,7 +225,13 @@ function getData(){
 
     porcenDia.textContent = `${porcentajeDia.toFixed(0)+"%"}`;
 
-    Sobrantes.textContent = `${llamadasDeSobra.toFixed(0)}`;
+    if(llamadasDeSobra>0){
+        Sobrantes.textContent = `${llamadasDeSobra.toFixed(0)}`;
+    }
+    else{
+      Sobrantes.textContent = `${0}`;
+    }
+    
 
     console.log("Release Rate: "     +RR);
     console.log("Porcentaje Deuda: " +porcentajeDeuda);
