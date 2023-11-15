@@ -7,6 +7,10 @@
     //console.log(fecha);
 
     const numeroMes = fecha.getMonth();
+    const numeroDia = fecha.getDate();
+
+    console.log("Fecha: "+fecha);
+    console.log("Numero dia: "+numeroDia);
 
     //console.log(numeroMes);
 
@@ -71,4 +75,11 @@
 
         const element = document.getElementById("ContenedorMeses");
         element.appendChild(para)
+
+        if(i === numeroDia){
+            para.style.backgroundColor = 'green';
+        }
+        else{
+            para.style.backgroundColor = '#042743';
+        }
     }
