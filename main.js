@@ -70,6 +70,8 @@ const promValue = document.querySelector(".prom");
 const faltaValue = document.querySelector(".falta");
 const alDiaValue = document.querySelector(".alDia");
 const porcenDia = document.querySelector(".porcentajeDia");
+const Sobrantes = document.querySelector(".dejarDeColgar");
+const Metrica   = document.querySelector(".paraMetrica");
 
 //var i = 0;
 //?function myFunction() {
@@ -110,6 +112,13 @@ function guardar(){
     localStorage.setItem('ReleasedCalls',ObjreleasedCalls.value);
     localStorage.setItem('TotalCalls',ObjtotalCalls.value);
 
+    getData();
+
+    if(RR > 70)
+    {
+      faltaParaMetrica = 0;
+    }
+
 }
 
 
@@ -132,6 +141,8 @@ function getData(){
     var restantesDelMes  = 0;
     var necesitoColgar   = 0;
     var porcentajeDia    = 0;
+    var llamadasDeSobra  = 0;
+    var faltaParaMetrica = 0;
 
     RR              = releasedCalls/totalCalls;
     porcentajeDeuda = (0.7 - RR).toFixed(2);
@@ -148,6 +159,25 @@ function getData(){
     faltaCol        = minimoPorColgar + deuda;
 
 
+    llamadasDeSobra =Math.round( releasedCalls - (totalCalls * 0.7));
+
+    let colgadas = releasedCalls;
+    let totales  = totalCalls;
+    let mirr = RR;
+    
+    while(mirr <= 70.5){
+  
+      colgadas++;
+      totales++;
+
+      mirr = (colgadas/totales)*100;
+
+      faltaParaMetrica++;
+      
+    }
+
+   
+
     setGaugeValue(gaugeElement,RR); 
 
     promValue.textContent = `${promedio.toFixed(0)}`;
@@ -157,6 +187,15 @@ function getData(){
     alDiaValue.textContent = `${restantesDelMes.toFixed(0)}`;
 
     porcenDia.textContent = `${porcentajeDia.toFixed(0)+"%"}`;
+
+    if(llamadasDeSobra>0){
+        Sobrantes.textContent = `${llamadasDeSobra.toFixed(0)}`;
+    }
+    else{
+        Sobrantes.textContent = `${0}`;
+    }
+    
+    Metrica.textContent = `${faltaParaMetrica.toFixed(0)}`;
 
     console.log("Release Rate: "     +RR);
     console.log("Porcentaje Deuda: " +porcentajeDeuda);
@@ -183,7 +222,6 @@ function getData(){
       colorFill.style.animation = "cambiarColorMal 1s 1 forwards"
     }
     
-   
    
 
 }

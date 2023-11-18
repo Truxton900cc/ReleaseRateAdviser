@@ -30,7 +30,7 @@ if(site.includes("wwe.uhc.com")){
 
    custom_colgar.addEventListener("click",function(){
 
-         alert("Se agrego el Boton Hpta :v");
+         alert("Se agrego el Boton Hpta!! :v");
 
    });
 
