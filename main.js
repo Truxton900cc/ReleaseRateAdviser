@@ -71,6 +71,7 @@ const faltaValue = document.querySelector(".falta");
 const alDiaValue = document.querySelector(".alDia");
 const porcenDia = document.querySelector(".porcentajeDia");
 const Sobrantes = document.querySelector(".dejarDeColgar");
+const Metrica   = document.querySelector(".paraMetrica");
 
 //var i = 0;
 //?function myFunction() {
@@ -113,6 +114,11 @@ function guardar(){
 
     getData();
 
+    if(RR > 70)
+    {
+      faltaParaMetrica = 0;
+    }
+
 }
 
 
@@ -136,6 +142,7 @@ function getData(){
     var necesitoColgar   = 0;
     var porcentajeDia    = 0;
     var llamadasDeSobra  = 0;
+    var faltaParaMetrica = 0;
 
     RR              = releasedCalls/totalCalls;
     porcentajeDeuda = (0.7 - RR).toFixed(2);
@@ -151,7 +158,25 @@ function getData(){
     mi70Pociento    = minimoPorColgar + deuda + 93;
     faltaCol        = minimoPorColgar + deuda;
 
+
     llamadasDeSobra =Math.round( releasedCalls - (totalCalls * 0.7));
+
+    let colgadas = releasedCalls;
+    let totales  = totalCalls;
+    let mirr = RR;
+    
+    while(mirr <= 70.5){
+  
+      colgadas++;
+      totales++;
+
+      mirr = (colgadas/totales)*100;
+
+      faltaParaMetrica++;
+      
+    }
+
+   
 
     setGaugeValue(gaugeElement,RR); 
 
@@ -170,6 +195,7 @@ function getData(){
         Sobrantes.textContent = `${0}`;
     }
     
+    Metrica.textContent = `${faltaParaMetrica.toFixed(0)}`;
 
     console.log("Release Rate: "     +RR);
     console.log("Porcentaje Deuda: " +porcentajeDeuda);

@@ -64,14 +64,26 @@
 
     }
 
+    const cuadrosFecha = [];
+
     for(let i = 1; i<= CantidadDias; i++){
 
-        const para = document.createElement("div");
+        const para = document.createElement("button");
         const node = document.createTextNode(i);
 
         para.className = 'grid-item';
 
+        para.id = i;
+
+        para.addEventListener('click', function(event){
+
+            var textoElemento = event.target.id;
+            console.log(textoElemento);
+        });
+
         para.appendChild(node);
+
+        cuadrosFecha[i] = para;
 
         const element = document.getElementById("ContenedorMeses");
         element.appendChild(para)
@@ -79,7 +91,9 @@
         if(i === numeroDia){
             para.style.backgroundColor = 'green';
         }
-        else{
-            para.style.backgroundColor = '#042743';
-        }
+
+
+
     }
+
+  
