@@ -162,7 +162,7 @@ h1{
       width: 100%;
       padding: 5px 20px;
       margin: 8px 0;
-      display: block;
+      display:block;
       border: 2px solid #004033;
       border-radius: 4px;
       box-sizing: border-box;
@@ -224,8 +224,8 @@ h1{
         color: #004033;
       }
       100%{
-        border: 2px solid #FFFFFF;
-        color: #FFFFFF;
+        border: 2px solid #ffffff00;
+        color: #ffffff00;
       }
     }
     @keyframes CuadroNormal{
