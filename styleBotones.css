@@ -1,0 +1,35 @@
+.botonSwitch2{
+    margin-left: 240px;
+    position: absolute;
+  }
+  .lbl-switch2{
+    display: inline-block;
+    position: relative;
+    width: 55px;
+    height: 30px;
+    background: #aaa;
+    border-radius: 100px;
+    top: 16px;
+    left: 28px;
+    cursor: pointer;
+  }
+  #btn-switch2:checked~ .lbl-switch2{
+    background: #61A0FF;
+  }
+  .lbl-switch2:after{
+    position: absolute;
+    content: '';
+    width: 22px;
+    height: 22px;
+    top: 4px;
+    left: 4px;
+    background: #FFF;
+    border-radius: 100px;
+    transition: 0.3s;
+  }
+  #btn-switch2:checked~ .lbl-switch2:after{
+    left: 28px;
+  }
+  #btn-switch2{
+    display: none;
+  }

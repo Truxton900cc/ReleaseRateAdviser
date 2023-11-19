@@ -63,7 +63,7 @@ function generateData(value, i1, i2, step) {
 
 });*/
 
-document.getElementById("submit").addEventListener("click",getData);
+//document.getElementById("submit").addEventListener("click",getData);
 const gaugeElement = document.querySelector(".gauge");
 
 const promValue = document.querySelector(".prom");
@@ -113,11 +113,6 @@ function guardar(){
     localStorage.setItem('TotalCalls',ObjtotalCalls.value);
 
     getData();
-
-    if(RR > 70)
-    {
-      faltaParaMetrica = 0;
-    }
 
 }
 

@@ -1,0 +1,27 @@
+  @keyframes MenuActivado{
+
+    0%{
+      height: 20%;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+    }
+    100%{
+      height: 100%;
+      border: 2px solid #004033;
+      color: #004033;
+    }
+  }
+  @keyframes MenuDesActivado{
+   
+    0%{
+      height: 100%;
+      border: 2px solid #004033;
+      color: #004033;
+    }
+    100%{
+      height: 20%;
+      border: 2px solid #FFFFFF;
+      color: #FFFFFF;
+    }
+  } 
+
