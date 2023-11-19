@@ -68,7 +68,7 @@
 
     for(let i = 1; i<= CantidadDias; i++){
 
-        const para = document.createElement("button");
+        const para = document.createElement("div");
         const node = document.createTextNode(i);
 
         para.className = 'grid-item';
@@ -92,7 +92,15 @@
             para.style.backgroundColor = 'green';
         }
 
+        function cambiarColor(numeroDia, color){
 
+          var elementoDia = document.getElementById(numeroDia);
+
+          if(elementoDia){
+            elementoDia.style.backgroundColor = color;
+          }
+
+        }
 
     }
 

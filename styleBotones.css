@@ -7,14 +7,14 @@
     position: relative;
     width: 55px;
     height: 30px;
-    background: #aaa;
+    background: #61A0FF;
     border-radius: 100px;
     top: 16px;
     left: 28px;
     cursor: pointer;
   }
   #btn-switch2:checked~ .lbl-switch2{
-    background: #61A0FF;
+    background: #aaa;
   }
   .lbl-switch2:after{
     position: absolute;
