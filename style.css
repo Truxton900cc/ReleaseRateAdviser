@@ -209,10 +209,12 @@ h1{
     @keyframes MenuActivado{
 
       0%{
-        border: 2px solid #FFFFFF;
-        color: #FFFFFF;
+        display: none;
+        border: 2px solid #ffffff00;
+        color: #ffffff00;
       }
       100%{
+        display: block;
         border: 2px solid #004033;
         color: #004033;
       }
@@ -220,10 +222,12 @@ h1{
     @keyframes MenuDesActivado{
      
       0%{
+        display: block;
         border: 2px solid #004033;
         color: #004033;
       }
       100%{
+        display: none;
         border: 2px solid #ffffff00;
         color: #ffffff00;
       }
@@ -314,11 +318,13 @@ h1{
     @keyframes MenuActivated{
 
       0%{
+        display: none;
         background-color: #04274300;
         color: #ffffff00;
         border: 2px solid #00000000;
       }
       100%{
+        display: grid;
         background-color: #042743;
         color: #ffffff;
         border: 2px solid #000000;
@@ -327,11 +333,13 @@ h1{
     @keyframes MenuDeActivated{
      
       0%{
+        display: grid;
         background-color: #042743;
         color: #ffffff;
         border: 2px solid #000000;
       }
       100%{
+        display: none;
         background-color: #04274300;
         color: #ffffff00;
         border: 2px solid #00000000;

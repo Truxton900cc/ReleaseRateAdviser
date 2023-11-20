@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
             elementosDiv.forEach(element => {
                 //element.style.animation = "MenuDeActivated  0.1s 1 forwards";
                 element.style.opacity = 0;
+                element.style.display = "none";
             });    
         }
         else{
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
             elementosDiv.forEach(element => {
                 //element.style.animation = "MenuActivated  0.1s 1 forwards"
                 element.style.opacity = 1;
+                element.style.display = "block";
             }); 
             //gridItems.style.animation = "MenuActivated 0.1s 1 forwards";
             
