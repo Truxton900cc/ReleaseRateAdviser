@@ -162,18 +162,96 @@ h1{
       width: 100%;
       padding: 5px 20px;
       margin: 8px 0;
-      display: block;
+      display:block;
       border: 2px solid #004033;
       border-radius: 4px;
       box-sizing: border-box;
     }
+    .botonSwitch{
+      margin-left: 240px;
+      position: absolute;
+    }
+    .lbl-switch{
+      display: inline-block;
+      position: relative;
+      width: 55px;
+      height: 30px;
+      background: #61A0FF;
+      border-radius: 100px;
+      top: 16px;
+      left: 28px;
+      cursor: pointer;
+    }
+    #btn-switch:checked~ .lbl-switch{
+      background: #aaa;
+    }
+    .lbl-switch:after{
+      position: absolute;
+      content: '';
+      width: 22px;
+      height: 22px;
+      top: 4px;
+      left: 4px;
+      background: #FFF;
+      border-radius: 100px;
+      transition: 0.3s;
+    }
+    #btn-switch:checked~ .lbl-switch:after{
+      left: 28px;
+    }
+    #btn-switch{
+      display: none;
+    }
     .res{
       margin-left: 5px;
     }
-    .resumen.res{
-      background-color: red;
-      
+
+    @keyframes MenuActivado{
+
+      0%{
+        display: none;
+        border: 2px solid #ffffff00;
+        color: #ffffff00;
+      }
+      100%{
+        display: block;
+        border: 2px solid #004033;
+        color: #004033;
+      }
     }
+    @keyframes MenuDesActivado{
+     
+      0%{
+        display: block;
+        border: 2px solid #004033;
+        color: #004033;
+      }
+      100%{
+        display: none;
+        border: 2px solid #ffffff00;
+        color: #ffffff00;
+      }
+    }
+    @keyframes CuadroNormal{
+
+      0%{
+        height: 20%;
+      }
+      100%{
+        height: 110%;
+        
+      }
+    }
+    @keyframes CuadroCorto{
+     
+      0%{
+        height: 110%;
+      }
+      100%{
+        height: 20%;
+      }
+    }
+  
     .espacio{
       display: inline-block;
       height: 10px;
@@ -216,7 +294,7 @@ h1{
 
     .grid-container {
       display: grid;
-      margin-left: 8px;
+      margin-left: 10px;
       grid-template-columns: 46px 46px 46px 46px 46px 46px;
       background-color: #04274300;
       row-gap: 4px;
@@ -237,3 +315,52 @@ h1{
       cursor:pointer;
     }
   
+    @keyframes MenuActivated{
+
+      0%{
+        display: none;
+        background-color: #04274300;
+        color: #ffffff00;
+        border: 2px solid #00000000;
+      }
+      100%{
+        display: grid;
+        background-color: #042743;
+        color: #ffffff;
+        border: 2px solid #000000;
+      }
+    }
+    @keyframes MenuDeActivated{
+     
+      0%{
+        display: grid;
+        background-color: #042743;
+        color: #ffffff;
+        border: 2px solid #000000;
+      }
+      100%{
+        display: none;
+        background-color: #04274300;
+        color: #ffffff00;
+        border: 2px solid #00000000;
+      }
+    }
+    @keyframes FrameSizeNormal{
+
+      0%{
+        height: 20%;
+      }
+      100%{
+        height: 100%;
+        
+      }
+    }
+    @keyframes FrameSizeShort{
+     
+      0%{
+        height: 100%;
+      }
+      100%{
+        height: 20%;
+      }
+    }

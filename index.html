@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="style.css">
-        
+        <link rel="stylesheet" href="styleBotones.css">
         <title>Release Rate Adviser</title>
     </head>
     <body>
@@ -31,23 +31,35 @@
                     <input id="RC" type="number"  name="releasedcalls" >
                     <p></p>
                     <label >Total de llamadas</label>
-                    <input id="TC" type="number"  name="Totalreleasedcalls" >
-                    <p></p>
-                    <input id="submit" type="submit" value="Submit">
+                    <input id="TC" type="number"  name="Totalreleasedcalls" >     
             </div>
         </div>  
-        <div id="resumen" class="resumen">
-            
+       
+        <div id="resumen" class="resumen primerSeccion">
+
+            <div class="botonSwitch">
+                <input type="checkbox" id="btn-switch">  
+                <label for="btn-switch"
+                class="lbl-switch"></label> 
+            </div>
             <h1 class="res">Resumen:</h1>
-            <label class="resumen">Promedio de Llamadas:<span class="prom"></span></label>
-            <label class="resumen">Le hace falta colgar:<span class="falta"></span></label>
-            <label class="resumen">Restantes del Mes:<span class="alDia"></span></label>
-            <label class="resumen">Porcentaje Diario:<span class="porcentajeDia"></span></label>
-            <label class="resumen">Puede Dejar de Colgar:<span class="dejarDeColgar"></span></label>
-            <label class="resumen">Para Estar en Metrica:<span class="paraMetrica"></span></label>
+            <label class="resumen" id="primerSeccionDatos">Promedio de Llamadas:<span class="prom"></span></label>
+            <label class="resumen" id="primerSeccionDatos1">Le hace falta colgar:<span class="falta"></span></label>
+            <label class="resumen" id="primerSeccionDatos2">Restantes del Mes:<span class="alDia"></span></label>
+            <label class="resumen" id="primerSeccionDatos3">Porcentaje Diario:<span class="porcentajeDia"></span></label>
+            <label class="resumen" id="primerSeccionDatos4">Puede Dejar de Colgar:<span class="dejarDeColgar"></span></label>
+            <label class="resumen" id="primerSeccionDatos5">Para Estar en Metrica:<span class="paraMetrica"></span></label>
+
         </div>
 
-        <div class="resumen" >
+        <div id="calendario" class="resumen" >
+
+            <div class="botonSwitch2">
+                <input type="checkbox" id="btn-switch2">  
+                <label for="btn-switch2"
+                class="lbl-switch2"></label> 
+            </div>
+
             <h1 class="Mes" id="MesActual"></h1>
             
             <div class="grid-container" id="ContenedorMeses">
@@ -95,6 +107,7 @@
             
         </div>
 
+        <script src="activacion.js"></script>
         <script src="main.js"></script>
         <script src="dateScript.js"></script>
 

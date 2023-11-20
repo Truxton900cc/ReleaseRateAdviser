@@ -63,7 +63,7 @@ function generateData(value, i1, i2, step) {
 
 });*/
 
-document.getElementById("submit").addEventListener("click",getData);
+//document.getElementById("submit").addEventListener("click",getData);
 const gaugeElement = document.querySelector(".gauge");
 
 const promValue = document.querySelector(".prom");
@@ -160,7 +160,11 @@ function getData(){
     let totales  = totalCalls;
     let mirr = RR;
     
-    while(mirr <= 70.5){
+    if(RR >= 0.7){
+      faltaParaMetrica = 0;
+    }
+    else{
+      while(mirr <= 70.5){
   
       colgadas++;
       totales++;
@@ -169,9 +173,11 @@ function getData(){
 
       faltaParaMetrica++;
       
+      }
     }
+    
 
-   
+  
 
     setGaugeValue(gaugeElement,RR); 
 
