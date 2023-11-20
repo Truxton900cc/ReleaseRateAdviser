@@ -114,11 +114,6 @@ function guardar(){
 
     getData();
 
-    if(RR > 70)
-    {
-      faltaParaMetrica = 0;
-    }
-
 }
 
 
