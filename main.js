@@ -164,7 +164,7 @@ function getData(){
       faltaParaMetrica = 0;
     }
     else{
-      while(mirr <= 70.5){
+      while(mirr <= 70){
   
       colgadas++;
       totales++;

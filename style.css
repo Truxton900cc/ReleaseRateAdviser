@@ -1,5 +1,5 @@
 h1{
-    margin-left: 70px;
+    margin-left: 62px;
     font-family: "Roboto", sans-serif;
     font-size: 24px;
     color: #004033;
@@ -273,8 +273,16 @@ h1{
     }
     .firma{
       display: flex;
+      margin-left: 40px;
       align-items: center;
       justify-content: center;
+    }
+    .logo{
+      display: block;
+      width: 30px;
+      height: 30px;
+      margin-left: 280px;
+      margin-top: -25px;
     }
     .porcentajeDia{
       margin-left: 52px;
