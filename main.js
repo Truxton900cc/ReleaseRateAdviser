@@ -26,6 +26,48 @@ document.addEventListener('DOMContentLoaded', function(){
   getData();
 });
 
+document.addEventListener('DOMContentLoaded', function(){
+
+  const fecha = new Date();
+
+  var year = fecha.getFullYear();
+  var month = fecha.getMonth()+1;
+  var day = 1;
+
+  //console.log("Esto es lo que se produjo en la clase dateScript: "+localStorage.getItem("conteoDias"));
+
+  let cantDias = localStorage.getItem("conteoDias");
+  cantDias++;
+
+  var conteoDiasHabiles = 0;
+
+  for(i=1;i<=9;i++){
+
+    var nuevaFecha = new Date(year.toString()+"-"+month.toString()+"-"+i.toString());
+    console.log(nuevaFecha);
+
+    if(nuevaFecha.getDay()>0 && nuevaFecha.getDay()<6)
+    {
+      conteoDiasHabiles++;
+    }
+
+  }
+  for(i=11;i<=cantDias;i++){
+
+    var nuevaFecha = new Date(year.toString()+"-"+month.toString()+"-"+i.toString());
+    console.log(nuevaFecha);
+
+    if(nuevaFecha.getDay()>0 && nuevaFecha.getDay()<6)
+    {
+      conteoDiasHabiles++;
+    }
+
+  }
+
+  console.log("dias habiles: "+conteoDiasHabiles);
+
+  //localStorage.setItem('DiasHabiles',conteoDiasHabiles.value);
+});
 
 
 /*document.addEventListener('DOMContentLoaded', function(){
@@ -183,11 +225,23 @@ function getData(){
 
     promValue.textContent = `${promedio.toFixed(0)}`;
 
-    faltaValue.textContent = `${necesitoColgar.toFixed(0)}`;
+    if(necesitoColgar>0){
+      faltaValue.textContent = `${necesitoColgar.toFixed(0)}`;
+    }
+    else{
+      faltaValue.textContent = `0`;
+    }
 
     alDiaValue.textContent = `${restantesDelMes.toFixed(0)}`;
 
-    porcenDia.textContent = `${porcentajeDia.toFixed(0)+"%"}`;
+    if(porcentajeDia>0 && porcentajeDia<100.1)
+    {
+      porcenDia.textContent = `${porcentajeDia.toFixed(0)+"%"}`;
+    }
+    else{
+      porcenDia.textContent = `70%`;
+    }
+      
 
     if(llamadasDeSobra>0){
         Sobrantes.textContent = `${llamadasDeSobra.toFixed(0)}`;
