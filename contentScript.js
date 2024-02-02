@@ -1,9 +1,11 @@
 const site = window.location.hostname;
+
+var ReleasedCallStored = localStorage.getItem('ReleasedCalls');
 //alert("Injector - The JavaScript has been inject to:"+site);
 
 //alert(site);
 
-const Add_Custom_Style = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
+//const Add_Custom_Style = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
 
  /*if(site.includes("youtube.com")){
    Add_Custom_Style(`
@@ -18,7 +20,7 @@ const Add_Custom_Style = css => document.head.appendChild(document.createElement
     `)
 }*/
 
-if(site.includes("wwe.uhc.com")){
+/*if(site.includes("wwe.uhc.com")){
 
    alert("Contre Genesys :v"); 
 
@@ -34,7 +36,7 @@ if(site.includes("wwe.uhc.com")){
 
    });
 
-   document.getElementsByClassName('nav-tabs wwe-tab-header').appendChild(colgar);
+   document.getElementsByClassName('nav-tabs wwe-tab-header').appendChild( );
 
   
 
@@ -42,4 +44,28 @@ if(site.includes("wwe.uhc.com")){
    custom_element.innerHTML = "alert('Miaucito')";
    document.body.append(custom_element);*/
 
+//}
+
+function injectJSCode(code){
+   const scriptElement = document.createElement('script');
+   scriptElement.setAttribute('type','text/javascript');
+   scriptElement.textContent = code;
+   document.documentElement.appendChild(scriptElement);
+}
+
+if(site.includes("wwe.uhc.com")){
+   injectJSCode(`console.log('Agregue una linea de codigo!! 2');`);
+
+   try{ 
+      injectJSCode(` let HangUpButtonSebas  = document.getElementById("wweVoice1HangupButton");`);
+      injectJSCode(` HangUpButtonSebas.addEventListener("click",ContarColgar);`);
+      injectJSCode(` function ContarColgar(){
+
+         console.log("Colgo!");
+
+      }`);
+      }
+      catch(err){
+         console.log("Paila no lo pude hacer lo siento, se jode :v");
+      }
 }

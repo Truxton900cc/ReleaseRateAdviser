@@ -34,6 +34,8 @@ document.addEventListener('DOMContentLoaded', function(){
   var month = fecha.getMonth()+1;
   var day = 1;
 
+  console.log("Hoy es:"+fecha);
+
   //console.log("Esto es lo que se produjo en la clase dateScript: "+localStorage.getItem("conteoDias"));
 
   let cantDias = localStorage.getItem("conteoDias");
@@ -52,7 +54,7 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
   }
-  for(i=11;i<=cantDias;i++){
+  for(i=10;i<=cantDias;i++){
 
     var nuevaFecha = new Date(year.toString()+"-"+month.toString()+"-"+i.toString());
     console.log(nuevaFecha);
@@ -64,9 +66,22 @@ document.addEventListener('DOMContentLoaded', function(){
 
   }
 
+
+
   console.log("dias habiles: "+conteoDiasHabiles);
 
+
+
   //localStorage.setItem('DiasHabiles',conteoDiasHabiles.value);
+
+  let inputDiasHabiles = document.getElementById("BD");
+
+  function cambiarDato(){
+    inputDiasHabiles.value = conteoDiasHabiles;
+  }
+  
+  cambiarDato();
+
 });
 
 
