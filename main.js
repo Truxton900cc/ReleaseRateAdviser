@@ -34,11 +34,7 @@ document.addEventListener('DOMContentLoaded', function(){
   var month = fecha.getMonth()+1;
   var day = 1;
 
-  var Today = fecha.getDay();
-
   console.log("Hoy es:"+fecha);
-
-  console.log("Dato Today:"+Today);
 
   //console.log("Esto es lo que se produjo en la clase dateScript: "+localStorage.getItem("conteoDias"));
 
@@ -46,6 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
   cantDias++;
 
   var conteoDiasHabiles = 0;
+  var conteoDiasTrabajados = 0;
 
   for(i=1;i<=9;i++){
 
@@ -56,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function(){
     {
       conteoDiasHabiles++;
     }
-
+   
   }
   for(i=10;i<=cantDias;i++){
 
@@ -71,17 +68,36 @@ document.addEventListener('DOMContentLoaded', function(){
   }
 
 
+  //console.log(nuevaFecha.getDate() == fecha.getDate());
+
+  /*while(nuevaFecha.getDate() != fecha.getDate()){
+    
+    conteoDiasTrabajados++;
+    
+  }*/
+
+  while(nuevaFecha.getDate() !== fecha.getDate()){
+    var nuevaFecha = new Date(year.toString()+"-"+month.toString()+"-"+day.toString());
+    day++;
+    if(nuevaFecha.getDay()>0 && nuevaFecha.getDay()<6){
+      conteoDiasTrabajados++;
+    }
+    
+  }
+
 
   console.log("dias habiles: "+conteoDiasHabiles);
-
+  console.log("Dias Trabajados:"+conteoDiasTrabajados);
 
 
   //localStorage.setItem('DiasHabiles',conteoDiasHabiles.value);
 
   let inputDiasHabiles = document.getElementById("BD");
+  let inputDiasTrabajados = document.getElementById("WD");
 
   function cambiarDato(){
     inputDiasHabiles.value = conteoDiasHabiles;
+    inputDiasTrabajados.value = conteoDiasTrabajados;
   }
   
   cambiarDato();
