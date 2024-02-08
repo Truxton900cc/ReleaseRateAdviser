@@ -50,22 +50,30 @@ function injectJSCode(code){
    const scriptElement = document.createElement('script');
    scriptElement.setAttribute('type','text/javascript');
    scriptElement.textContent = code;
-   document.documentElement.appendChild(scriptElement);
+   var cuerpo = document.body.tbody;
+   //document.documentElement.appendChild(scriptElement);
+   cuerpo.appendChild(scriptElement);
 }
 
 if(site.includes("wwe.uhc.com")){
    injectJSCode(`console.log('Agregue una linea de codigo!! 2');`);
 
-   try{ 
-      injectJSCode(` let HangUpButtonSebas  = document.getElementById("wweVoice1HangupButton");`);
-      injectJSCode(` HangUpButtonSebas.addEventListener("click",ContarColgar);`);
-      injectJSCode(` function ContarColgar(){
+   //injectJSCode(` const HangUpButtonSebas  = document.getElementsByClassName("wwe-login-container");`);
+   
+   //injectJSCode(` const HangUpButtonSebas  = document.getElementById("wwe-login-container");`);
 
-         console.log("Colgo!");
+   //injectJSCode(` console.log(HangUpButtonSebas)`);
 
-      }`);
-      }
-      catch(err){
-         console.log("Paila no lo pude hacer lo siento, se jode :v");
-      }
+   //injectJSCode(` function ContarColgar(){
+
+   //   console.log("Colgo!");
+
+   //}`);
+
+   //injectJSCode(` HangUpButtonSebas.addEventListener("click", ContarColgar);`);
+  
+      
+     
+   console.log("Paila no lo pude hacer lo siento, se jode :v");
+      
 }

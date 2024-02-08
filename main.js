@@ -34,7 +34,11 @@ document.addEventListener('DOMContentLoaded', function(){
   var month = fecha.getMonth()+1;
   var day = 1;
 
+  var Today = fecha.getDay();
+
   console.log("Hoy es:"+fecha);
+
+  console.log("Dato Today:"+Today);
 
   //console.log("Esto es lo que se produjo en la clase dateScript: "+localStorage.getItem("conteoDias"));
 
