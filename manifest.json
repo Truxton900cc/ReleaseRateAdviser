@@ -1,7 +1,7 @@
 {
-    "name": "Release Rate Adviser2",
-    "description": "Es una extencion que agreaga botones :v",
-    "version": "0.06",
+    "name": "Release Rate Adviser",
+    "description": "Es una extencion para llevar el conteo del Release Rate",
+    "version": "0.75",
     "manifest_version":3,
     "action":{
         "default_popup":"index.html"
@@ -9,8 +9,11 @@
     "content_scripts":[
 
         {
+            "world": "MAIN",
+            "all_frames": true,
+            "run_at": "document_idle",
             "matches":[
-                "https://*.youtube.com/*",
+                
                 "https://*.wwe.uhc.com/*"
             ],
             "js":["contentScript.js"]
@@ -22,6 +25,11 @@
         "32":  "icons/icon_32.png",
         "72":  "icons/icon_72.png",
         "128": "icons/icon_128.png"
-    }
+    },
+    "externally_connectable": {
+
+        "matches": ["https://*.wwe.uhc.com/*"]
+        
+      }
     
 }
