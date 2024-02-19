@@ -82,7 +82,7 @@
             var textoElemento = event.target.id;
             //alert(textoElemento);
             loquesea(textoElemento);
-            //console.log(textoElemento);
+            console.log(textoElemento);
         });
 
         para.appendChild(node);

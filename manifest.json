@@ -1,7 +1,7 @@
 {
     "name": "Release Rate Adviser",
     "description": "Es una extencion para llevar el conteo del Release Rate",
-    "version": "0.27",
+    "version": "0.75",
     "manifest_version":3,
     "action":{
         "default_popup":"index.html"
@@ -11,7 +11,7 @@
         {
             "world": "MAIN",
             "all_frames": true,
-            "run_at": "document_end",
+            "run_at": "document_idle",
             "matches":[
                 
                 "https://*.wwe.uhc.com/*"
@@ -25,6 +25,11 @@
         "32":  "icons/icon_32.png",
         "72":  "icons/icon_72.png",
         "128": "icons/icon_128.png"
-    }
+    },
+    "externally_connectable": {
+
+        "matches": ["https://*.wwe.uhc.com/*"]
+        
+      }
     
 }
