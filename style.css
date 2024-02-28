@@ -206,14 +206,21 @@ h1{
     margin-left: 5px;
   }
 
-  .flex-container{
-    display: flex;
-    flex-wrap: wrap;
+  .grid-container2{
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 10px;
     
   }
-  #main-container div{
-    width: 500px;
-    height: 50px;
+  .grid-container2 > div {
+    text-align: center;
+    padding: 0px 0px;
+    font-size: 15px;
+  }
+  .grid-container2 > div > p{
+    text-align: center;
+    padding: 4px 0px;
+    font-size: 20px;
   }
 
   @keyframes MenuActivado{
@@ -248,14 +255,14 @@ h1{
       height: 20%;
     }
     100%{
-      height: 110%;
+      height: 145%;
       
     }
   }
   @keyframes CuadroCorto{
     
     0%{
-      height: 110%;
+      height: 145%;
     }
     100%{
       height: 20%;
@@ -266,11 +273,14 @@ h1{
     display: inline-block;
     height: 10px;
   }
-  .prom{
+  /* .prom{
     margin-left: 21px;
   }
   .falta{
     margin-left: 49px;
+  }
+  .porcentajeDia{
+    margin-left: 67px;
   }
   .alDia{
     margin-left: 57px;
@@ -280,7 +290,7 @@ h1{
   }
   .paraMetrica{
     margin-left: 42px;
-  }
+  }*/
   .firma{
     display: flex;
     margin-left: 40px;
@@ -294,9 +304,7 @@ h1{
     margin-left: 280px;
     margin-top: -25px;
   }
-  .porcentajeDia{
-    margin-left: 67px;
-  }
+  
   .MedidorYDatos{
     width: 100%;
     padding-top: 8px;

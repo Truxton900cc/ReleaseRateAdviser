@@ -11,6 +11,13 @@ const primeraSeccion3 = document.getElementById(`primerSeccionDatos3`);
 const primeraSeccion4 = document.getElementById(`primerSeccionDatos4`);
 const primeraSeccion5 = document.getElementById(`primerSeccionDatos5`);
 
+const resultadoDatos  = document.getElementById(`primerResultado`);
+const resultadoDatos1 = document.getElementById(`primerResultado1`); 
+const resultadoDatos2 = document.getElementById(`primerResultado2`);
+const resultadoDatos3 = document.getElementById(`primerResultado3`);
+const resultadoDatos4 = document.getElementById(`primerResultado4`);
+const resultadoDatos5 = document.getElementById(`primerResultado5`);
+
 var elementosDiv;
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,6 +69,14 @@ switchBoton1.addEventListener('change',function(){
         primeraSeccion3.style.animation = "MenuDesActivado 0.1s 1 forwards";
         primeraSeccion4.style.animation = "MenuDesActivado 0.1s 1 forwards";
         primeraSeccion5.style.animation = "MenuDesActivado 0.1s 1 forwards";
+
+        resultadoDatos.style.animation  = "MenuDesActivado 0.1s 1 forwards"; 
+        resultadoDatos1.style.animation = "MenuDesActivado 0.1s 1 forwards";
+        resultadoDatos2.style.animation = "MenuDesActivado 0.1s 1 forwards";
+        resultadoDatos3.style.animation = "MenuDesActivado 0.1s 1 forwards";
+        resultadoDatos4.style.animation = "MenuDesActivado 0.1s 1 forwards";
+        resultadoDatos5.style.animation = "MenuDesActivado 0.1s 1 forwards";
+
         resumenCuadro.style.animation   = "CuadroCorto     0.4s 1 forwards";
         
     }
@@ -74,6 +89,14 @@ switchBoton1.addEventListener('change',function(){
         primeraSeccion2.style.animation = "MenuActivado 0.1s 1 forwards";
         primeraSeccion4.style.animation = "MenuActivado 0.1s 1 forwards";
         primeraSeccion5.style.animation = "MenuActivado 0.1s 1 forwards";
+
+        resultadoDatos.style.animation  = "MenuActivado 0.1s 1 forwards"; 
+        resultadoDatos1.style.animation = "MenuActivado 0.1s 1 forwards";
+        resultadoDatos2.style.animation = "MenuActivado 0.1s 1 forwards";
+        resultadoDatos3.style.animation = "MenuActivado 0.1s 1 forwards";
+        resultadoDatos4.style.animation = "MenuActivado 0.1s 1 forwards";
+        resultadoDatos5.style.animation = "MenuActivado 0.1s 1 forwards";
+
         resumenCuadro.style.animation   = "CuadroNormal 0.4s 1 forwards";
        
     }
