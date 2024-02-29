@@ -1,7 +1,7 @@
 {
     "name": "Release Rate Adviser",
     "description": "Es una extencion para llevar el conteo del Release Rate",
-    "version": "0.87",
+    "version": "0.89",
     "manifest_version":3,
     "action":{
         "default_popup":"index.html"
