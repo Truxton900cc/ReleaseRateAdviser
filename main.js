@@ -223,11 +223,11 @@ function getData(){
     var faltaParaMetrica = 0;
 
     RR              = releasedCalls/totalCalls;
-    porcentajeDeuda = (0.7 - RR).toFixed(2);
+    porcentajeDeuda = ((storedValueRR/100) - RR).toFixed(2);
     deuda           = (totalCalls*porcentajeDeuda);
     promedio        = (totalCalls/diasTrabajados);
     restantesDelMes = promedio * (diasHabiles-diasTrabajados);
-    minimoPorColgar = (restantesDelMes*0.7);
+    minimoPorColgar = (restantesDelMes*(storedValueRR/100));
     necesitoColgar  = (minimoPorColgar + deuda);
     porcentajeDia   = (necesitoColgar/restantesDelMes)*100;
 
@@ -238,10 +238,37 @@ function getData(){
 
 
     //llamadasDeSobra = Math.floor( releasedCalls - (totalCalls * 0.7));
-    llamadasDeSobra = Math.trunc( releasedCalls - (totalCalls * 0.7));
+    //llamadasDeSobra = Math.trunc( releasedCalls - (totalCalls * (storedValueRR/100)));
 
-    console.log("antes de la operacion: "+(releasedCalls - (totalCalls * 0.7)));
+    //console.log("antes de la operacion: "+(releasedCalls - (totalCalls * (storedValueRR/100))));
 
+    //console.log("Operacion "+ (releasedCalls > (totalCalls*(storedValueRR/100))));
+
+    if(releasedCalls > (totalCalls*(storedValueRR/100))){
+      
+      let totalDeLlamadas = totalCalls;
+      let totalColgada = releasedCalls;
+      let OtromiRR = totalCalls*(storedValueRR/100);
+
+      while(totalColgada > OtromiRR){
+
+        totalDeLlamadas++;
+
+        OtromiRR = totalDeLlamadas*(storedValueRR/100);
+
+        llamadasDeSobra++;
+
+      }
+      llamadasDeSobra--;
+    }
+    else{
+      
+      llamadasDeSobra = 0;
+      
+
+    }
+
+    
 
     console.log("Llamadas de Sobra: "+llamadasDeSobra);
 
@@ -257,11 +284,13 @@ function getData(){
       while(storedValueRR > mirr){
   
       colgadas++;
+
       totales++; 
       
       mirr = (colgadas/totales)*100;
-
+    
       faltaParaMetrica++;
+      
       }
     }
     
