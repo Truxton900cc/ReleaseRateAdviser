@@ -11,17 +11,19 @@ document.addEventListener('DOMContentLoaded', function(){
   var storedValueBD = localStorage.getItem('DiasHabiles');
   var storedValueRC = localStorage.getItem('ReleasedCalls');
   var storedValueTC = localStorage.getItem('TotalCalls');
-
+  var storedValueRR = localStorage.getItem('ReleasedRateGoal');
 
   let ObjWD  = document.getElementById("WD");
   let ObjBD  = document.getElementById("BD");
   let ObjRC  = document.getElementById("RC");
   let ObjTC  = document.getElementById("TC");
+  let ObjRR  = document.getElementById("GOAL");
 
   ObjWD.value = storedValueWD;
   ObjBD.value = storedValueBD;
   ObjRC.value = storedValueRC;
   ObjTC.value = storedValueTC;
+  ObjRR.value = storedValueRR;
 
   getData();
 });
@@ -172,23 +174,24 @@ let ObjdiasTrabajados = document.getElementById("WD");
 let ObjdiasHabiles    = document.getElementById("BD");
 let ObjreleasedCalls  = document.getElementById("RC");
 let ObjtotalCalls     = document.getElementById("TC");
+let ObjreleaseInput   = document.getElementById("GOAL");
 
-
-
+let ObjIndicador      = document.getElementById("TrianguloId");
+var valorIndicador    = ObjIndicador.value;
 
 ObjdiasTrabajados.addEventListener('change',guardar);
 ObjdiasHabiles.addEventListener('change',guardar);
 ObjreleasedCalls.addEventListener('change',guardar);
 ObjtotalCalls.addEventListener('change',guardar);
-
-
+ObjreleaseInput.addEventListener('change',guardar);
+//ObjreleaseInput.addEventListener('change',moverElemento(valorIndicador));
 
 function guardar(){
     localStorage.setItem('DiasTrabajados',ObjdiasTrabajados.value);
     localStorage.setItem('DiasHabiles',ObjdiasHabiles.value);
     localStorage.setItem('ReleasedCalls',ObjreleasedCalls.value);
     localStorage.setItem('TotalCalls',ObjtotalCalls.value);
-
+    localStorage.setItem('ReleasedRateGoal',ObjreleaseInput.value);
     getData();
 
 }
@@ -200,6 +203,9 @@ function getData(){
     let diasHabiles    = document.getElementById("BD").value;
     let releasedCalls  = document.getElementById("RC").value;
     let totalCalls     = document.getElementById("TC").value;
+    var storedValueRR = localStorage.getItem('ReleasedRateGoal');
+
+    //moverElemento(storedValueRR);
 
     let colorFill      = document.getElementById(`gaugeFillId`);
 
@@ -217,11 +223,11 @@ function getData(){
     var faltaParaMetrica = 0;
 
     RR              = releasedCalls/totalCalls;
-    porcentajeDeuda = (0.7 - RR).toFixed(2);
+    porcentajeDeuda = ((storedValueRR/100) - RR).toFixed(2);
     deuda           = (totalCalls*porcentajeDeuda);
     promedio        = (totalCalls/diasTrabajados);
     restantesDelMes = promedio * (diasHabiles-diasTrabajados);
-    minimoPorColgar = (restantesDelMes*0.7);
+    minimoPorColgar = (restantesDelMes*(storedValueRR/100));
     necesitoColgar  = (minimoPorColgar + deuda);
     porcentajeDia   = (necesitoColgar/restantesDelMes)*100;
 
@@ -231,23 +237,58 @@ function getData(){
     faltaCol        = minimoPorColgar + deuda;
 
 
-    llamadasDeSobra =Math.round( releasedCalls - (totalCalls * 0.7));
+    //llamadasDeSobra = Math.floor( releasedCalls - (totalCalls * 0.7));
+    //llamadasDeSobra = Math.trunc( releasedCalls - (totalCalls * (storedValueRR/100)));
+
+    //console.log("antes de la operacion: "+(releasedCalls - (totalCalls * (storedValueRR/100))));
+
+    //console.log("Operacion "+ (releasedCalls > (totalCalls*(storedValueRR/100))));
+
+    if(releasedCalls > (totalCalls*(storedValueRR/100))){
+      
+      let totalDeLlamadas = totalCalls;
+      let totalColgada = releasedCalls;
+      let OtromiRR = totalCalls*(storedValueRR/100);
+
+      while(totalColgada > OtromiRR){
+
+        totalDeLlamadas++;
+
+        OtromiRR = totalDeLlamadas*(storedValueRR/100);
+
+        llamadasDeSobra++;
+
+      }
+      llamadasDeSobra--;
+    }
+    else{
+      
+      llamadasDeSobra = 0;
+      
+
+    }
+
+    
+
+    console.log("Llamadas de Sobra: "+llamadasDeSobra);
 
     let colgadas = releasedCalls;
     let totales  = totalCalls;
     let mirr = RR;
     
-    if(RR >= 0.7){
+    if(RR >= storedValueRR/100){
       faltaParaMetrica = 0;
     }
     else{
-      while(mirr <= 70){
+
+      while(storedValueRR > mirr){
   
       colgadas++;
-      totales++;
 
+      totales++; 
+      
       mirr = (colgadas/totales)*100;
-
+    
       faltaParaMetrica++;
       
       }
@@ -305,14 +346,14 @@ function getData(){
     console.log(site);
 
     
-    if(RR < 0.7){
+    if(RR < storedValueRR/100){
       colorFill.style.animation = "cambiarColorBien 1s 1 forwards"
     }
     else{
       colorFill.style.animation = "cambiarColorMal 1s 1 forwards"
     }
     
-   
+    
 
 }
 
@@ -328,4 +369,43 @@ function setGaugeValue(gauge, value) {
       (value * 100).toFixed(2)
     }%`;
   }
+
+function contarAlColgar(){
+
+  var storedValueTC = localStorage.getItem('TotalCalls');
+
+  
+
+}
+
+var circulo = document.getElementById("circulo");
+
+var centroX = circulo.offsetLeft + circulo.offsetWidth / 2;
+var centroY = circulo.offsetTop + circulo.offsetHeight / 2;
+
+var radio = circulo.offsetWidth / 2;
+
+var angulo = 180;
+
+function moverElemento(valorAngulo){
+  
+
+  angulo = (valorAngulo/0.56)+180;
+
+  var posX = centroX + radio * Math.cos(angulo * Math.PI / 180);
+  var posY = centroY + radio * Math.sin(angulo * Math.PI / 180);
+
+  ObjIndicador.style.left = posX - ObjIndicador.offsetWidth / 2 + "px";
+  ObjIndicador.style.top  = posY - ObjIndicador.offsetHeight / 2 + "px";
+  
+
+  //angulo += 1;
+
+  
+  /*if(angulo > 360){
+    angulo = 180;
+  }*/
  
+  //requestAnimationFrame(moverElemento);
+}
+moverElemento(0.8);

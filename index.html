@@ -11,52 +11,110 @@
 
         <h1>Release Rate Adviser</h1>
 
+
         <div class="MedidorYDatos">
+            <p></p>
             <div class="gauge" >
+               
+                <div class="triangulo" id="TrianguloId">
+                   
+                    <input id="GOAL" maxlength="2" type="tel" name="quantity" min="1" max="99" title="goal"></input> 
+                    
+                </div>
                 <div class="gauge__body">
                 <div class="gauge__fill" id="gaugeFillId"></div>
                 <div class="gauge__cover"></div>
                 </div>
             </div>
-                  
+            
+            <div id="circulo"></div>
 
-            <div class = "etiquetas">
-                    <label >Dias Trabajados</label>
-                    <input id="WD" type="number"  name="firstname" >
-                    <p></p>    
-                    <label >Total Dias Habiles</label>
-                    <input id="BD" type="number"  name="lastname" >
-                    <p></p>
-                    <label >Llamadas Colgadas</label>
-                    <input id="RC" type="number"  name="releasedcalls" >
-                    <p></p>
-                    <label >Total de llamadas</label>
-                    <input id="TC" type="number"  name="Totalreleasedcalls" >     
+            <div class = "grid-container3">
+
+                <div class = "TagIngresoDatos">
+                    <p id="WDtag">Worked Days</p>
+                    <p id="BDtag">Bussiness Days</p>
+                    <p id="RCtag">Released Calls</p>
+                    <p id="TCtag">Total Calls</p>
+                </div>
+
+                <div class="divEntradas">
+                    <input id="WD" type="number"  name="firstname" title="Worked Days">
+                    <input id="BD" type="number"  name="lastname" title="Bussiness Days">
+                    <input id="RC" type="number"  name="releasedcalls" title="Release Calls">
+                    <input id="TC" type="number"  name="Totalreleasedcalls" title="Total Calls">
+                </div>    
+                         
             </div>
         </div>  
        
         <div id="resumen" class="resumen primerSeccion">
 
             <div class="botonSwitch">
-                <input type="checkbox" id="btn-switch">  
+                <input type="checkbox" id="btn-switch" title="Overview">  
                 <label for="btn-switch"
                 class="lbl-switch"></label> 
             </div>
-            <h1 class="res">Resumen:</h1>
+            <h1 class="res">Overview:</h1>
+            
+            <div class="grid-container2" id="main-container">
+                <div>
+                    <label class="resumen" id="primerSeccionDatos">Call Average:</label>
+               </div> 
 
-                <label class="resumen" id="primerSeccionDatos">Promedio de Llamadas:<span class="prom datosResumen"></span></label>
-                <label class="resumen" id="primerSeccionDatos1">Le hace falta colgar:<span class="falta datosResumen"></span></label>
-                <label class="resumen" id="primerSeccionDatos2">Restantes del Mes:<span class="alDia datosResumen"></span></label>
-                <label class="resumen" id="primerSeccionDatos3">Porcentaje Diario:<span class="porcentajeDia datosResumen"></span></label>
-                <label class="resumen" id="primerSeccionDatos4">Puede Dejar de Colgar:<span class="dejarDeColgar datosResumen"></span></label>
-                <label class="resumen" id="primerSeccionDatos5">Para Estar en Metrica:<span class="paraMetrica datosResumen"></span></label>
+                    <div>
+                            <p id="primerResultado" class="prom datosResumen resumen"p>
+                    </div>
+
+               <div>
+                    <label class="resumen" id="primerSeccionDatos1">Minimum Amount:</label>
+               </div> 
+
+                    <div>
+                        <p    id="primerResultado1"  class="falta datosResumen resumen"></p>
+                    </div>
+                            
+               <div>
+                    <label class="resumen" id="primerSeccionDatos2">Remaining for the Month:</label>
+               </div>
+
+                     <div>
+                        <p   id="primerResultado2"  class="alDia datosResumen resumen"></p>
+                     </div>   
+    
+               <div>
+                    <label class="resumen" id="primerSeccionDatos3">Daily Percentage:</label>
+               </div> 
+
+                    <div>
+                        <p   id="primerResultado3" class="porcentajeDia datosResumen resumen"></p>
+                    </div>
+                
+               <div>
+                    <label class="resumen" id="primerSeccionDatos4">Opportunities:</label>
+               </div>
+
+                    <div>
+                        <p  id="primerResultado4" class="dejarDeColgar datosResumen resumen"></p>
+                    </div>
+
+               <div>
+                    <label class="resumen" id="primerSeccionDatos5">To Be On Target:</label>
+               </div> 
+
+                    <div>
+                        <p id="primerResultado5" class="paraMetrica datosResumen  resumen"></p>
+                    </div>
+                    
+            </div>
+               
            
         </div>
 
         <div id="calendario" class="resumen" >
 
             <div class="botonSwitch2">
-                <input type="checkbox" id="btn-switch2">  
+                <input type="checkbox" id="btn-switch2" title="Month">  
                 <label for="btn-switch2"
                 class="lbl-switch2"></label> 
             </div>
@@ -64,40 +122,7 @@
             <h1 class="Mes" id="MesActual"></h1>
             
             <div class="grid-container" id="ContenedorMeses">
-                <!--<div class="grid-item">1</div>
-                <div class="grid-item">2</div>
-                <div class="grid-item">3</div>
-                <div class="grid-item">4</div>
-                <div class="grid-item">5</div>
-                <div class="grid-item">6</div>
-                <div class="grid-item">7</div>
-                <div class="grid-item">8</div>
-                <div class="grid-item">9</div>
 
-                <div class="grid-item">10</div>
-                <div class="grid-item">11</div>
-                <div class="grid-item">12</div>
-                <div class="grid-item">13</div>
-                <div class="grid-item">14</div>
-                <div class="grid-item">15</div>
-                <div class="grid-item">16</div>
-                <div class="grid-item">17</div>
-                <div class="grid-item">18</div>
-
-                <div class="grid-item">19</div>
-                <div class="grid-item">20</div>
-                <div class="grid-item">21</div>
-                <div class="grid-item">22</div>
-                <div class="grid-item">23</div>
-                <div class="grid-item">24</div>
-                <div class="grid-item">25</div>
-                <div class="grid-item">26</div>
-                <div class="grid-item">27</div>
-
-                <div class="grid-item">28</div>
-                <div class="grid-item">29</div>
-                <div class="grid-item">30</div>
-                <div class="grid-item">31</div>-->
             </div>
 
         </div>
@@ -105,7 +130,7 @@
 
         <div class="espacio">
            <span class="firma">Developed by Sebastian Delgado</span> 
-           <img src="images/sign.png" class="logo" >
+           <img src="images/sign.png" class="logo" title="Logo">
         </div>
 
         <script src="activacion.js"></script>
